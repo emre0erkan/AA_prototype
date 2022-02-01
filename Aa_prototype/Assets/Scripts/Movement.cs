@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public int stickSpeed;
+    bool isMoving = true;
 
     Rigidbody2D rb;
     void Start()
@@ -14,23 +15,21 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveStick();
+        if (isMoving)
+            rb.MovePosition(rb.position + Vector2.up);
     }
 
-    public void MoveStick()
-    {
-            rb.velocity = new Vector2(0, stickSpeed);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("MainCircle"))
         {
-            rb.velocity = new Vector2(0, 0);
+            isMoving = false;
             transform.SetParent(collision.transform);
         }
         if (collision.gameObject.tag.Equals("Stick"))
         {
+            isMoving = false;
             Debug.Log("Game Over!");
         }
     }

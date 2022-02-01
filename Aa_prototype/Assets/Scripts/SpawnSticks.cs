@@ -5,14 +5,17 @@ using UnityEngine;
 public class SpawnSticks : MonoBehaviour
 {
     public GameObject stick;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            SpawnStick();
+        }
+    }
+
+    public void SpawnStick()
+    {
+            Instantiate(stick, transform.position, Quaternion.identity);
     }
 }
