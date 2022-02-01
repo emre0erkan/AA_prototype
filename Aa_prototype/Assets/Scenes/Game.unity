@@ -216,9 +216,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1221369309}
   - component: {fileID: 1221369308}
+  - component: {fileID: 1221369310}
   m_Layer: 0
-  m_Name: StickCircle
-  m_TagString: Untagged
+  m_Name: MainCircle
+  m_TagString: MainCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,6 +289,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1221369310
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221369307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.495
 --- !u!1001 &1996625227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,8 +312,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 155276174055350310, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2196980402485773908, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
       propertyPath: m_Name
+      value: Stick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196980402485773908, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
+      propertyPath: m_TagString
       value: Stick
       objectReference: {fileID: 0}
     - target: {fileID: 8694791213290647323, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
@@ -305,11 +330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8694791213290647323, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4122386
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694791213290647323, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8162754
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 8694791213290647323, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -345,3 +370,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
+--- !u!1 &1996625228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2196980402485773908, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
+  m_PrefabInstance: {fileID: 1996625227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1996625229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996625228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219119fa2525fed4690f9203307e2f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stickSpeed: 0
