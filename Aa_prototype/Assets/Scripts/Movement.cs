@@ -16,21 +16,21 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         if (isMoving)
-            rb.MovePosition(rb.position + Vector2.up);
+            rb.MovePosition(rb.position + Vector2.up * stickSpeed * Time.deltaTime);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("MainCircle"))
         {
+            transform.SetParent(collision.transform, true);
             isMoving = false;
-            transform.SetParent(collision.transform);
         }
-        if (collision.gameObject.tag.Equals("Stick"))
+        if (collision.tag.Equals("Stick"))
         {
             isMoving = false;
-            Debug.Log("Game Over!");
+            Debug.Log("GAME OVER!");
         }
     }
 }
