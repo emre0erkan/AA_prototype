@@ -12,29 +12,26 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         MoveStick();
     }
 
     public void MoveStick()
     {
-        if (Input.GetMouseButton(0))
-        {
-            rb.velocity = new Vector2(0, 10);
-        }
+            rb.velocity = new Vector2(0, stickSpeed);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.tag.Equals("MainCircle"))
+        if (collision.gameObject.tag.Equals("MainCircle"))
         {
-            Debug.Log("?");
-            rb.velocity = new Vector2(0,0);
+            rb.velocity = new Vector2(0, 0);
+            transform.SetParent(collision.transform);
         }
-        //if (other.tag.Equals("Stick"))
-        //{
-        //    Debug.Log("Game Over!");
-        //}
+        if (collision.gameObject.tag.Equals("Stick"))
+        {
+            Debug.Log("Game Over!");
+        }
     }
 }
