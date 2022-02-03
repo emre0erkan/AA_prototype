@@ -5,10 +5,11 @@ using UnityEngine;
 public class SpawnCircle : MonoBehaviour
 {
     public GameObject stick;
+    public bool isOver = false;
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !isOver)
         {
             SpawnStick();
         }

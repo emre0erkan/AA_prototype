@@ -5,13 +5,14 @@ using UnityEngine;
 public class MainCircle : MonoBehaviour
 {
     public int rotateSpeed;
-    void Start()
-    {
-        
-    }
+    public int goal = 6;
+    public int currentSticks = 0;
+    public bool isMoving = true;
 
     void Update()
     {
-        transform.Rotate(0, 0, rotateSpeed*Time.deltaTime);
+        if(isMoving)
+        transform.Rotate(0, 0, -rotateSpeed*Time.deltaTime);
     }
+
 }

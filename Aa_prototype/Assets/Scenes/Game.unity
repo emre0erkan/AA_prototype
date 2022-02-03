@@ -315,10 +315,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1221369307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42eb425123e86ee4b8ccff196e4fa33b, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e41a101a7857d489b4ac4984cefefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 100
+  goal: 6
+  currentSticks: 0
+  isMoving: 1
 --- !u!1 &1914054355
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +335,7 @@ GameObject:
   - component: {fileID: 1914054358}
   m_Layer: 0
   m_Name: SpawnCircle
-  m_TagString: Untagged
+  m_TagString: SpawnCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,3 +418,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stick: {fileID: 4657182164097946106, guid: 7c92f4f817287f149a35dacf5a3070ea, type: 3}
+  isOver: 0
+--- !u!1 &2059306193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059306195}
+  - component: {fileID: 2059306194}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2059306194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059306193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab755362dbfa9e4f8f4dfbca9719ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCircleObject: {fileID: 1221369307}
+  spawnCircleObject: {fileID: 1914054355}
+--- !u!4 &2059306195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059306193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24913725, y: -0.22506033, z: -10.483766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public int stickSpeed;
-    bool isMoving = true;
+    private int stickSpeed = 20;
+    public bool isMoving = true;
 
     Rigidbody2D rb;
-    void Start()
+    GameObject gameManager;
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     void FixedUpdate()
@@ -19,18 +21,18 @@ public class Movement : MonoBehaviour
             rb.MovePosition(rb.position + Vector2.up * stickSpeed * Time.deltaTime);
     }
 
-
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("MainCircle"))
-        {
-            transform.SetParent(collision.transform, true);
-            isMoving = false;
-        }
+            {
+                
+                transform.SetParent(collision.transform, true);
+                isMoving = false;
+            }
         if (collision.tag.Equals("Stick"))
-        {
+            {
             isMoving = false;
-            Debug.Log("GAME OVER!");
-        }
+            gameManager.GetComponent<GameManager>().GameOver();
+            }
     }
 }

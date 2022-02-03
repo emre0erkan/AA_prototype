@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MainCircle
   - Stick
+  - SpawnCircle
+  - GameManager
   layers:
   - Default
   - TransparentFX
