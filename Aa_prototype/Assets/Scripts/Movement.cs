@@ -9,10 +9,12 @@ public class Movement : MonoBehaviour
 
     Rigidbody2D rb;
     GameObject gameManager;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
     }
 
     void FixedUpdate()
@@ -24,15 +26,14 @@ public class Movement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("MainCircle"))
-            {
-                
-                transform.SetParent(collision.transform, true);
-                isMoving = false;
-            }
+        {
+            transform.SetParent(collision.transform, true);
+            isMoving = false;
+        }
         if (collision.tag.Equals("Stick"))
-            {
+        {
             isMoving = false;
             gameManager.GetComponent<GameManager>().GameOver();
-            }
+        }
     }
 }

@@ -15,4 +15,14 @@ public class Menu : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
     }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

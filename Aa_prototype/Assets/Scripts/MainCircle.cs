@@ -15,4 +15,11 @@ public class MainCircle : MonoBehaviour
         transform.Rotate(0, 0, -rotateSpeed*Time.deltaTime);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Stick")
+        {
+            currentSticks++;
+        }
+    }
 }
