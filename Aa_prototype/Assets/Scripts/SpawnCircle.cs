@@ -7,10 +7,19 @@ public class SpawnCircle : MonoBehaviour
     public GameObject stick;
     public bool isOver = false;
 
+    GameManager gameManager;
+    public GameObject GameManager;
+
+    private void Awake()
+    {
+        gameManager = GameManager.GetComponent<GameManager>();
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && !isOver)
         {
+            gameManager.RemainingStickText();
             SpawnStick();
         }
     }

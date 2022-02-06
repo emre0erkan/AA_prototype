@@ -7,11 +7,11 @@ public class MainCircle : MonoBehaviour
     public int rotateSpeed;
     public int goal = 6;
     public int currentSticks = 0;
-    public bool isMoving = true;
+    public bool isMovingCircle = true;
 
     void Update()
     {
-        if(isMoving)
+        if(isMovingCircle)
         transform.Rotate(0, 0, -rotateSpeed*Time.deltaTime);
     }
 

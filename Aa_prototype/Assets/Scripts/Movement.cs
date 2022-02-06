@@ -5,7 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private int stickSpeed = 20;
-    public bool isMoving = true;
+    public bool isMovingStick = true;
+    public bool gameOver = false;
 
     Rigidbody2D rb;
     GameObject gameManager;
@@ -19,7 +20,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isMoving)
+        if (isMovingStick)
             rb.MovePosition(rb.position + Vector2.up * stickSpeed * Time.deltaTime);
     }
 
@@ -28,11 +29,12 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag.Equals("MainCircle"))
         {
             transform.SetParent(collision.transform, true);
-            isMoving = false;
+            isMovingStick = false;
         }
         if (collision.tag.Equals("Stick"))
         {
-            isMoving = false;
+            isMovingStick = false;
+            gameOver = true;
             gameManager.GetComponent<GameManager>().GameOver();
         }
     }
