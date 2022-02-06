@@ -54,22 +54,6 @@ public class GameManager : MonoBehaviour
             three.text = (stickGoal - 2) + "";
         }
     }
-
-    public void GameOver()
-    {
-        StartCoroutine(WaitForGameOver());
-
-    }
-
-    IEnumerator WaitForGameOver()
-    {
-        gameOver = true;
-        animator.SetTrigger("gameovertrigger");
-        mainCircle.isMovingCircle = false;
-        spawnCircle.isOver = true;
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0);
-    }
     public void RemainingStickText()
     {
         stickGoal--;
@@ -96,6 +80,21 @@ public class GameManager : MonoBehaviour
             NextLevel();
         }
     }
+    public void GameOver()
+    {
+        StartCoroutine(WaitForGameOver());
+
+    }
+
+    IEnumerator WaitForGameOver()
+    {
+        gameOver = true;
+        animator.SetTrigger("gameovertrigger");
+        mainCircle.isMovingCircle = false;
+        spawnCircle.isOver = true;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
+    }
 
     public void NextLevel()
     {
@@ -106,8 +105,7 @@ public class GameManager : MonoBehaviour
     {
         mainCircle.isMovingCircle = false;
         spawnCircle.isOver = true;
-        if (!movement.gameOver)
-            animator.SetTrigger("nextleveltrigger");
+        animator.SetTrigger("nextleveltrigger");
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
