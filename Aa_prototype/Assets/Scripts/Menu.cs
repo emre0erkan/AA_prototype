@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int levelNumber = PlayerPrefs.GetInt("save");
+
+        if (levelNumber == 1)
+            SceneManager.LoadScene(levelNumber + 1);
+        else if (levelNumber == 0)
+            SceneManager.LoadScene(levelNumber + 2);
+        else
+            SceneManager.LoadScene(levelNumber);
     }
 
     public void QuitGame()
@@ -21,8 +29,8 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void Retry()
+    public void ResetLevel()
     {
-        SceneManager.LoadScene(2);
+        PlayerPrefs.DeleteAll();
     }
 }

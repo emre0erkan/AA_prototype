@@ -123,16 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &2090962459023451093
+--- !u!1001 &2061422617
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2090962459454842631, guid: 22f0a4954053a464f801b14e3751db49, type: 3}
-      propertyPath: stickGoal
-      value: 6
+    - target: {fileID: 2090962460219129354, guid: 22f0a4954053a464f801b14e3751db49, type: 3}
+      propertyPath: rotateSpeed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2847118443341245814, guid: 22f0a4954053a464f801b14e3751db49, type: 3}
       propertyPath: m_Name

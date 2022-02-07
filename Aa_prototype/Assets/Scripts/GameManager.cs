@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     public Text three;
 
     public int stickGoal;
-    public bool gameOver;
+    public bool gameOver = true;
+
 
     private void Awake()
     {
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("save", (SceneManager.GetActiveScene().buildIndex));
+        PlayerPrefs.GetInt("save");
         mainCircleText.text = SceneManager.GetActiveScene().name;
 
         if (stickGoal < 2)
@@ -75,7 +78,7 @@ public class GameManager : MonoBehaviour
             two.text = (stickGoal - 1) + "";
             three.text = (stickGoal - 2) + "";
         }
-        if (stickGoal == 0 && gameOver == false)
+        if (stickGoal == 0 && gameOver == false)   //movement.gameOver
         {
             NextLevel();
         }
@@ -83,7 +86,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         StartCoroutine(WaitForGameOver());
-
     }
 
     IEnumerator WaitForGameOver()
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaitForNextLevel()
     {
+        yield return new WaitForSeconds(0.3f);
         mainCircle.isMovingCircle = false;
         spawnCircle.isOver = true;
         animator.SetTrigger("nextleveltrigger");
