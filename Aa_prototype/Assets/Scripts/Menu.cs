@@ -14,6 +14,11 @@ public class Menu : MonoBehaviour
             SceneManager.LoadScene(levelNumber + 1);
         else if (levelNumber == 0)
             SceneManager.LoadScene(levelNumber + 2);
+        else if(levelNumber > 4) 
+        {
+            levelNumber = 0;
+            SceneManager.LoadScene(levelNumber);
+        }
         else
             SceneManager.LoadScene(levelNumber);
     }

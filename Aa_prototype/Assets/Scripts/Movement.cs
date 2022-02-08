@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
     private int stickSpeed = 20;
     public bool isMovingStick = true;
-    public bool gameOver = false;
+    //public bool gameOver = false;
 
     Rigidbody2D rb;
     GameObject gameManager;
+    GameManager gManager;
+    public Text whichStickCount;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-
+        gManager = gameManager.GetComponent<GameManager>();
     }
 
     void FixedUpdate()
@@ -30,11 +33,15 @@ public class Movement : MonoBehaviour
         {
             transform.SetParent(collision.transform, true);
             isMovingStick = false;
+            if(gManager.stickGoal == 0 && !gManager.gameOver)
+            {
+                gManager.NextLevel();
+                gManager.canShoot = false;
+            }
         }
-        if (collision.tag.Equals("Stick"))
+        else if (collision.tag.Equals("Stick"))
         {
             isMovingStick = false;
-            gameOver = true;
             gameManager.GetComponent<GameManager>().GameOver();
         }
     }

@@ -17,12 +17,13 @@ public class GameManager : MonoBehaviour
 
     public Animator animator;
     public Text mainCircleText;
-    public Text one;
-    public Text two;
-    public Text three;
+    [SerializeField] private Text one;
+    [SerializeField] private Text two;
+    [SerializeField] private Text three;
 
     public int stickGoal;
     public bool gameOver = true;
+    public bool canShoot = true;
 
 
     private void Awake()
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetInt("save", (SceneManager.GetActiveScene().buildIndex));
-        PlayerPrefs.GetInt("save");
         mainCircleText.text = SceneManager.GetActiveScene().name;
 
         if (stickGoal < 2)
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     }
     public void RemainingStickText()
     {
+        movement.whichStickCount.text = stickGoal.ToString();
         stickGoal--;
         if (stickGoal < 2)
         {
@@ -77,10 +78,6 @@ public class GameManager : MonoBehaviour
             one.text = stickGoal + "";
             two.text = (stickGoal - 1) + "";
             three.text = (stickGoal - 2) + "";
-        }
-        if (stickGoal == 0 && gameOver == false)   //movement.gameOver
-        {
-            NextLevel();
         }
     }
     public void GameOver()
@@ -110,7 +107,14 @@ public class GameManager : MonoBehaviour
         spawnCircle.isOver = true;
         animator.SetTrigger("nextleveltrigger");
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            SceneManager.LoadScene(0);
+            PlayerPrefs.SetInt("save", 0);
+        }
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
 }

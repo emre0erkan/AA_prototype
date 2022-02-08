@@ -17,8 +17,9 @@ public class SpawnCircle : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !isOver)
+        if (Input.GetButtonDown("Fire1") && !isOver && gameManager.canShoot)
         {
+            
             gameManager.RemainingStickText();
             SpawnStick();
         }

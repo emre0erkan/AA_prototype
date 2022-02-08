@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 2090962458847638631}
   m_Layer: 0
   m_Name: SubCircle1
-  m_TagString: SpawnCircle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 2090962460092191307}
   m_Layer: 0
   m_Name: SubCircle2
-  m_TagString: SpawnCircle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,8 +939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 100
-  goal: 6
-  currentSticks: 0
   isMovingCircle: 1
 --- !u!1 &2090962460232553622
 GameObject:
