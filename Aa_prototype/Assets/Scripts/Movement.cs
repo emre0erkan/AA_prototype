@@ -7,12 +7,11 @@ public class Movement : MonoBehaviour
 {
     private int stickSpeed = 20;
     public bool isMovingStick = true;
-    //public bool gameOver = false;
+    public Text numberOfStick;
 
     Rigidbody2D rb;
-    GameObject gameManager;
     GameManager gManager;
-    public Text whichStickCount;
+    GameObject gameManager;
 
     void Awake()
     {
@@ -33,16 +32,18 @@ public class Movement : MonoBehaviour
         {
             transform.SetParent(collision.transform, true);
             isMovingStick = false;
-            if(gManager.stickGoal == 0 && !gManager.gameOver)
+            if (gManager.stickGoal == 0 && !gManager.gameOver)
             {
-                gManager.NextLevel();
                 gManager.canShoot = false;
+                gManager.NextLevel();
             }
+
         }
         else if (collision.tag.Equals("Stick"))
         {
             isMovingStick = false;
             gameManager.GetComponent<GameManager>().GameOver();
         }
+
     }
 }

@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetInt("save", (SceneManager.GetActiveScene().buildIndex));
+        PlayerPrefs.GetInt("save");
         mainCircleText.text = SceneManager.GetActiveScene().name;
 
         if (stickGoal < 2)
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     }
     public void RemainingStickText()
     {
-        movement.whichStickCount.text = stickGoal.ToString();
+        movement.numberOfStick.text = stickGoal.ToString();
         stickGoal--;
         if (stickGoal < 2)
         {
@@ -79,6 +80,11 @@ public class GameManager : MonoBehaviour
             two.text = (stickGoal - 1) + "";
             three.text = (stickGoal - 2) + "";
         }
+        //if (stickGoal == 0 && gameOver == false)   
+        //{
+        //    canShoot = false;
+        //    NextLevel();
+        //}
     }
     public void GameOver()
     {
@@ -106,12 +112,11 @@ public class GameManager : MonoBehaviour
         mainCircle.isMovingCircle = false;
         spawnCircle.isOver = true;
         animator.SetTrigger("nextleveltrigger");
-        yield return new WaitForSeconds(2);
-
+        yield return new WaitForSeconds(1.5f);
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            SceneManager.LoadScene(0);
             PlayerPrefs.SetInt("save", 0);
+            SceneManager.LoadScene(0);
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

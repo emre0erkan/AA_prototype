@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 378492850}
   m_Layer: 0
   m_Name: SubCircle1
-  m_TagString: Untagged
+  m_TagString: SpawnCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 1086189982}
   m_Layer: 0
   m_Name: SubCircle2
-  m_TagString: Untagged
+  m_TagString: SpawnCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1025,7 +1025,6 @@ MonoBehaviour:
   three: {fileID: 1209251653}
   stickGoal: 6
   gameOver: 0
-  canShoot: 1
 --- !u!4 &2059306195
 Transform:
   m_ObjectHideFlags: 0
